@@ -8,19 +8,25 @@
   <title>Landing OnVacation Style</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="scss/main.css" />
+  
 </head>
 
 <body>
   <!-- Header con menú responsive -->
   <header class="header">
     <div class="container">
-      <div class="logo">Vacaciones+</div>
+      <div class="logo">
+        <img src="images/logo_white.pgn.png" alt="Logo Vacaciones+">
+      </div>
       <nav class="nav" id="nav">
         <a href="#hero">Inicio</a>
         <a href="#features">Características</a>
         <a href="#contact">Contacto</a>
       </nav>
-      <button class="menu-toggle" id="menu-toggle">☰</button>
+      
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </header>
 
@@ -37,9 +43,21 @@
     <div class="container">
       <h2>¿Por qué elegirnos?</h2>
       <div class="features-grid">
-        <div class="feature"><i class="fas fa-umbrella-beach"></i> Playas increíbles</div>
-        <div class="feature">Vuelos incluidos</div>
-        <div class="feature">Hospedaje 5 estrellas</div>
+        <div class="feature">
+            <i class="fas fa-umbrella-beach"></i> 
+            <h3>Playas increíbles</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium eveniet voluptates fugiat quo sit eligendi incidunt veritatis possimus sapiente corrupti non porro aliquam facilis, delectus hic praesentium nobis, ex exercitationem.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-plane"></i>
+            <h3>Vuelos incluidos</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium eveniet voluptates fugiat quo sit eligendi incidunt veritatis possimus sapiente corrupti non porro aliquam facilis, delectus hic praesentium nobis, ex exercitationem.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-hotel"></i>
+            <h3>Hospedaje 5 estrellas</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium eveniet voluptates fugiat quo sit eligendi incidunt veritatis possimus sapiente corrupti non porro aliquam facilis, delectus hic praesentium nobis, ex exercitationem.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -49,103 +67,31 @@
     <div class="container">
       <h2>Contáctanos</h2>
       <form id="contact-form">
-        <input type="text" name="name" placeholder="Nombre completo" required />
+        <input type="text" name="name" placeholder="Nombres y apellidos" required />
+        <input type="number" name="phone" placeholder="Celular" required />
         <input type="email" name="email" placeholder="Correo electrónico" required />
         <textarea name="message" placeholder="Tu mensaje" required></textarea>
         <button type="submit">Enviar mensaje</button>
       </form>
-      <p id="form-status"></p>
+      <p id="form-status"> </p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 Vacaciones+. Todos los derechos reservados.</p>
+      
       <div class="socials">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">Twitter</a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i> Twitter</a>
       </div>
+
+      <p>&copy; 2025 On Vacation. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <script>
-    // Funcionalidad del menú hamburguesa
-    document.getElementById('menu-toggle').addEventListener('click', function () {
-      document.getElementById('nav').classList.toggle('active');
-    });
-
-    // Simulación de envío de formulario con fetch
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const form = e.target;
-      const data = {
-        name: form.name.value,
-        email: form.email.value,
-        message: form.message.value,
-      };
-
-      fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-        .then(res => res.json())
-        .then(json => {
-          document.getElementById('form-status').innerText = 'Mensaje enviado con éxito';
-          form.reset();
-        })
-        .catch(() => {
-          document.getElementById('form-status').innerText = 'Hubo un error. Intenta de nuevo';
-        });
-    });
-
-
-    // HERO SLIDER FUNCIONAL Y ELEGANTE
-    document.addEventListener("DOMContentLoaded", () => {
-    const hero = document.getElementById("hero");
-    const overlay = hero.querySelector(".overlay");
-
-    const slides = [
-        {
-        image: "images/slide1.jpg",
-        title: "Vive la experiencia OnVacation",
-        subtitle: "Los mejores destinos para tus próximas vacaciones"
-        },
-        {
-        image: "images/slide2.jpg",
-        title: "Viaja como mereces",
-        subtitle: "Disfruta todo incluido sin preocupaciones"
-        }
-    ];
-
-    let current = 0;
-
-    function changeSlide() {
-        current = (current + 1) % slides.length;
-        const slide = slides[current];
-
-        hero.style.backgroundImage = `url('${slide.image}')`;
-        overlay.innerHTML = `
-        <h1>${slide.title}</h1>
-        <p>${slide.subtitle}</p>
-        `;
-    }
-
-    setInterval(changeSlide, 10000); // Cada 10 segundos
-    });
-
-    // MENÚ RESPONSIVE DESLIZANTE
-    document.getElementById("menu-toggle").addEventListener("click", function () {
-    const nav = document.getElementById("nav");
-    nav.classList.toggle("active");
-    });
-
-  </script>
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>

@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Dosis:wght@200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 :root {
-  --primary-color: #0060a3;
-  --secondary-color: #00bcd4;
-  --text-color: #333;
+  --primary-color: #DD183B;
+  --secondary-color: #0060a3;
+  --tertiary-color: #222222;
+  --text-color: #0F172A;
   --bg-light: #f8f9fa;
   --font-family: "Asap", sans-serif;
 }
@@ -28,42 +29,61 @@ body {
 
 .header {
   background: var(--primary-color);
-  color: white;
-  padding: 1rem 0;
+  color: var(--bg-light);
+  padding: 0;
   position: sticky;
   top: 0;
   z-index: 999;
 }
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .header .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+  padding: 10px;
+}
+.header .logo img {
+  width: 120px;
+  max-width: 100%;
 }
 .header .nav {
   display: flex;
-  gap: 1rem;
+  gap: 24px;
 }
 .header .nav a {
-  color: white;
+  color: var(--bg-light);
   text-decoration: none;
-  transition: color 0.3s;
+  transition: all 0.3s;
+  font-size: 16px;
 }
 .header .nav a:hover {
-  color: var(--secondary-color);
-}
-.header .nav.active {
-  display: block;
-  flex-direction: column;
+  font-weight: bold;
+  text-decoration: underline;
 }
 .header .menu-toggle {
   display: none;
   font-size: 1.5rem;
   background: none;
   border: none;
-  color: white;
+  color: var(--bg-light);
 }
 @media (max-width: 768px) {
   .header .nav {
-    display: none;
+    position: fixed;
+    top: 90px;
+    left: -100%;
+    width: 100%;
+    border-top: 2px solid var(--bg-light);
+    height: auto;
+    background: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    transition: left 0.4s ease-in-out;
+  }
+  .header .nav.active {
+    left: 0;
   }
   .header .menu-toggle {
     display: block;
@@ -72,7 +92,8 @@ body {
 
 .hero {
   background-size: cover;
-  background-position: center;
+  background: url("../images/slide1.jpg") center/cover no-repeat;
+  background-position: bottom center;
   transition: background-image 1s ease-in-out;
   height: 90vh;
   display: flex;
@@ -92,14 +113,22 @@ body {
 .hero .overlay p {
   font-size: 1.2rem;
 }
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+  }
+}
 
 .features {
   background-color: var(--bg-light);
   padding: 3rem 1rem;
+  cursor: pointer;
 }
 .features h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
 }
 .features .features-grid {
   display: grid;
@@ -114,8 +143,21 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 }
+.features .features-grid .feature i {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+.features .features-grid .feature h3 {
+  font-size: 1.5em;
+  margin: 12px 0;
+}
 .features .features-grid .feature:hover {
   transform: translateY(-5px);
+}
+@media (max-width: 768px) {
+  .features .features-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact {
@@ -123,7 +165,9 @@ body {
 }
 .contact h2 {
   text-align: center;
-  margin-bottom: 2rem;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
 }
 .contact form {
   display: flex;
@@ -150,7 +194,7 @@ body {
 .contact form button:hover {
   background: var(--secondary-color);
 }
-.contact form #form-status {
+.contact #form-status {
   margin-top: 1rem;
   text-align: center;
 }
@@ -158,38 +202,21 @@ body {
 .footer {
   background: #222;
   color: white;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   text-align: center;
 }
 .footer .socials {
-  margin-top: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
 }
 .footer .socials a {
   margin: 0 0.5rem;
-  color: var(--secondary-color);
+  color: var(--bg-light);
   text-decoration: none;
 }
 .footer .socials a:hover {
   text-decoration: underline;
-}
-
-.nav {
-  position: fixed;
-  top: 0;
-  left: -100%;
-  width: 250px;
-  height: 100vh;
-  background: #0060a3;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  transition: left 0.4s ease-in-out;
-}
-.nav.active {
-  left: 0;
-}
-.nav a {
-  color: white;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
 }
