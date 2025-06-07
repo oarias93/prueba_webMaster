@@ -1,0 +1,170 @@
+:root {
+  --primary-color: #0060a3;
+  --secondary-color: #00bcd4;
+  --text-color: #333;
+  --bg-light: #f8f9fa;
+  --font-family: "Segoe UI", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.header {
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.header .nav {
+  display: flex;
+  gap: 1rem;
+}
+.header .nav a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.header .nav a:hover {
+  color: var(--secondary-color);
+}
+.header .nav.active {
+  display: block;
+  flex-direction: column;
+}
+.header .menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+}
+@media (max-width: 768px) {
+  .header .nav {
+    display: none;
+  }
+  .header .menu-toggle {
+    display: block;
+  }
+}
+
+.hero {
+  background: url("../images/slide1.jpg") center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.hero .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  text-align: center;
+}
+.hero .overlay h1 {
+  font-size: 2.5rem;
+}
+.hero .overlay p {
+  font-size: 1.2rem;
+}
+
+.features {
+  background-color: var(--bg-light);
+  padding: 3rem 1rem;
+}
+.features h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.features .features-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.features .features-grid .feature {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.features .features-grid .feature:hover {
+  transform: translateY(-5px);
+}
+
+.contact {
+  padding: 3rem 1rem;
+}
+.contact h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+.contact form input,
+.contact form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.contact form button {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.contact form button:hover {
+  background: var(--secondary-color);
+}
+.contact form #form-status {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.footer {
+  background: #222;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.footer .socials {
+  margin-top: 1rem;
+}
+.footer .socials a {
+  margin: 0 0.5rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+.footer .socials a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=main.css.map */

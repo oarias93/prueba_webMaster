@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Landing OnVacation Style</title>
+  <link rel="stylesheet" href="scss/main.css" />
+</head>
+
+<body>
+  <!-- Header con menú responsive -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">Vacaciones+</div>
+      <nav class="nav" id="nav">
+        <a href="#hero">Inicio</a>
+        <a href="#features">Características</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="overlay">
+      <h1>Vive la experiencia OnVacation</h1>
+      <p>Los mejores destinos para tus próximas vacaciones</p>
+    </div>
+  </section>
+
+  <!-- Sección de características -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>¿Por qué elegirnos?</h2>
+      <div class="features-grid">
+        <div class="feature">🏖️ Playas increíbles</div>
+        <div class="feature">🛫 Vuelos incluidos</div>
+        <div class="feature">🏨 Hospedaje 5 estrellas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de contacto -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contáctanos</h2>
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Nombre completo" required />
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+        <textarea name="message" placeholder="Tu mensaje" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+      <p id="form-status"></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Vacaciones+. Todos los derechos reservados.</p>
+      <div class="socials">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Funcionalidad del menú hamburguesa
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('nav').classList.toggle('active');
+    });
+
+    // Simulación de envío de formulario con fetch
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value,
+      };
+
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(res => res.json())
+        .then(json => {
+          document.getElementById('form-status').innerText = 'Mensaje enviado con éxito 🎉';
+          form.reset();
+        })
+        .catch(() => {
+          document.getElementById('form-status').innerText = 'Hubo un error. Intenta de nuevo 😢';
+        });
+    });
+  </script>
+</body>
+
+</html>
