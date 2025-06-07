@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Landing OnVacation Style</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="scss/main.css" />
 </head>
 
@@ -36,9 +37,9 @@
     <div class="container">
       <h2>¿Por qué elegirnos?</h2>
       <div class="features-grid">
-        <div class="feature">🏖️ Playas increíbles</div>
-        <div class="feature">🛫 Vuelos incluidos</div>
-        <div class="feature">🏨 Hospedaje 5 estrellas</div>
+        <div class="feature"><i class="fas fa-umbrella-beach"></i> Playas increíbles</div>
+        <div class="feature">Vuelos incluidos</div>
+        <div class="feature">Hospedaje 5 estrellas</div>
       </div>
     </div>
   </section>
@@ -95,13 +96,55 @@
       })
         .then(res => res.json())
         .then(json => {
-          document.getElementById('form-status').innerText = 'Mensaje enviado con éxito 🎉';
+          document.getElementById('form-status').innerText = 'Mensaje enviado con éxito';
           form.reset();
         })
         .catch(() => {
-          document.getElementById('form-status').innerText = 'Hubo un error. Intenta de nuevo 😢';
+          document.getElementById('form-status').innerText = 'Hubo un error. Intenta de nuevo';
         });
     });
+
+
+    // HERO SLIDER FUNCIONAL Y ELEGANTE
+    document.addEventListener("DOMContentLoaded", () => {
+    const hero = document.getElementById("hero");
+    const overlay = hero.querySelector(".overlay");
+
+    const slides = [
+        {
+        image: "images/slide1.jpg",
+        title: "Vive la experiencia OnVacation",
+        subtitle: "Los mejores destinos para tus próximas vacaciones"
+        },
+        {
+        image: "images/slide2.jpg",
+        title: "Viaja como mereces",
+        subtitle: "Disfruta todo incluido sin preocupaciones"
+        }
+    ];
+
+    let current = 0;
+
+    function changeSlide() {
+        current = (current + 1) % slides.length;
+        const slide = slides[current];
+
+        hero.style.backgroundImage = `url('${slide.image}')`;
+        overlay.innerHTML = `
+        <h1>${slide.title}</h1>
+        <p>${slide.subtitle}</p>
+        `;
+    }
+
+    setInterval(changeSlide, 10000); // Cada 10 segundos
+    });
+
+    // MENÚ RESPONSIVE DESLIZANTE
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+    const nav = document.getElementById("nav");
+    nav.classList.toggle("active");
+    });
+
   </script>
 </body>
 
