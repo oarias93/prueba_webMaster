@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Landing OnVacation Style</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="scss/main.css" />
+  
+</head>
+
+<body>
+  <!-- Header con menú responsive -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo_white.pgn.png" alt="Logo Vacaciones+">
+      </div>
+      <nav class="nav" id="nav">
+        <a href="#hero">Inicio</a>
+        <a href="#features">Características</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="overlay">
+      <h1>Vive la experiencia OnVacation</h1>
+      <p>Los mejores destinos para tus próximas vacaciones</p>
+    </div>
+  </section>
+
+  <!-- Sección de características -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2>¿Por qué elegirnos?</h2>
+      <div class="features-grid">
+        <div class="feature">
+            <i class="fas fa-umbrella-beach"></i> 
+            <h3>Playas increíbles</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium eveniet voluptates fugiat quo sit eligendi incidunt veritatis possimus sapiente corrupti non porro aliquam facilis, delectus hic praesentium nobis, ex exercitationem.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-plane"></i>
+            <h3>Vuelos incluidos</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium eveniet voluptates fugiat quo sit eligendi incidunt veritatis possimus sapiente corrupti non porro aliquam facilis, delectus hic praesentium nobis, ex exercitationem.</p>
+        </div>
+        <div class="feature">
+            <i class="fa-solid fa-hotel"></i>
+            <h3>Hospedaje 5 estrellas</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium eveniet voluptates fugiat quo sit eligendi incidunt veritatis possimus sapiente corrupti non porro aliquam facilis, delectus hic praesentium nobis, ex exercitationem.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de contacto -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contáctanos</h2>
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Nombres y apellidos" required />
+        <input type="number" name="phone" placeholder="Celular" required />
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+        <textarea name="message" placeholder="Tu mensaje" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+      <p id="form-status"> </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      
+      <div class="socials">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i> Twitter</a>
+      </div>
+
+      <p>&copy; 2025 On Vacation. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>
